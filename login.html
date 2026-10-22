@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrar | StudyFlow</title>
+  <link rel="stylesheet" href="login.css">
+  <script src="auth.js"></script>
+  <script src="login.js" defer></script>
+</head>
+<body>
+  <div class="auth">
+
+    <!-- Painel lateral: repete o resumo de disciplinas do painel principal -->
+    <aside class="auth-side" aria-hidden="true">
+      <div class="brand">
+        <span class="brand-icon">S</span>
+        <span class="brand-name">StudyFlow</span>
+      </div>
+
+      <p class="side-title">Veja o quanto você já avançou.</p>
+
+      <ul class="ladder">
+        <li style="--value: 75%; --i: 0; --tone: #8b6cff">
+          <span class="ladder-name">Python</span>
+          <span class="ladder-value">75%</span>
+          <span class="bar"><span class="bar-fill"></span></span>
+        </li>
+        <li style="--value: 60%; --i: 1; --tone: #4f9dff">
+          <span class="ladder-name">HTML e CSS</span>
+          <span class="ladder-value">60%</span>
+          <span class="bar"><span class="bar-fill"></span></span>
+        </li>
+        <li style="--value: 45%; --i: 2; --tone: #34c38f">
+          <span class="ladder-name">Banco de Dados</span>
+          <span class="ladder-value">45%</span>
+          <span class="bar"><span class="bar-fill"></span></span>
+        </li>
+        <li style="--value: 30%; --i: 3; --tone: #ff9a52">
+          <span class="ladder-name">JavaScript</span>
+          <span class="ladder-value">30%</span>
+          <span class="bar"><span class="bar-fill"></span></span>
+        </li>
+        <li style="--value: 80%; --i: 4; --tone: #f06aa8">
+          <span class="ladder-name">Algoritmos</span>
+          <span class="ladder-value">80%</span>
+          <span class="bar"><span class="bar-fill"></span></span>
+        </li>
+      </ul>
+    </aside>
+
+    <main class="auth-main">
+      <section class="auth-card">
+        <h1 id="auth-title">Entrar no StudyFlow</h1>
+        <p class="auth-subtitle" id="auth-subtitle">Continue de onde você parou.</p>
+
+        <form id="auth-form" novalidate>
+
+          <div class="field" data-only="register" hidden>
+            <label for="name">Nome</label>
+            <input id="name" name="name" type="text" autocomplete="name" aria-describedby="name-error" disabled>
+            <p class="field-error" id="name-error" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" autocomplete="email" inputmode="email"
+                   aria-describedby="email-error">
+            <p class="field-error" id="email-error" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="password">Senha</label>
+            <div class="password-wrap">
+              <input id="password" name="password" type="password" autocomplete="current-password"
+                     aria-describedby="password-hint password-error">
+              <button type="button" class="reveal" id="reveal" aria-controls="password confirm"
+                      aria-label="Mostrar senha">Mostrar</button>
+            </div>
+            <p class="field-hint" id="password-hint" data-only="register" hidden>Use pelo menos 8 caracteres.</p>
+            <p class="field-error" id="password-error" hidden></p>
+          </div>
+
+          <div class="field" data-only="register" hidden>
+            <label for="confirm">Repita a senha</label>
+            <input id="confirm" name="confirm" type="password" autocomplete="new-password"
+                   aria-describedby="confirm-error" disabled>
+            <p class="field-error" id="confirm-error" hidden></p>
+          </div>
+
+          <label class="check">
+            <input type="checkbox" id="remember">
+            <span>Manter conectado neste navegador</span>
+          </label>
+
+          <p class="form-error" id="form-error" role="alert" hidden></p>
+
+          <button class="btn btn-primary" type="submit" id="submit">Entrar</button>
+          <button class="btn btn-ghost" type="button" id="demo-btn">Testar com conta de demonstração</button>
+        </form>
+
+        <p class="switch">
+          <span id="switch-text">Ainda não tem conta?</span>
+          <button type="button" class="link" id="switch-btn">Criar conta</button>
+        </p>
+
+        <p class="notice">
+          Modo demonstração: as contas ficam salvas só neste navegador e não são enviadas a nenhum servidor.
+        </p>
+      </section>
+    </main>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,357 @@
+/* StudyFlow - tela de login
+   Ajuste as cores nas variáveis abaixo para combinar com o seu style.css. */
+
+:root {
+  --ink: #1c1833;
+  --muted: #615d78;
+  --paper: #f5f4fb;
+  --surface: #ffffff;
+  --line: #d9d5ea;
+  --violet: #5b3df5;
+  --violet-hover: #4b2fd6;
+  --violet-deep: #2a1c6b;
+  --danger: #b42340;
+  --danger-soft: #fdecef;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+ 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+ 
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+ 
+[hidden] {
+  display: none !important;
+}
+ 
+:focus-visible {
+  outline: 3px solid var(--violet);
+  outline-offset: 2px;
+}
+ 
+/* ---------- estrutura ---------- */
+ 
+.auth {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: minmax(320px, 5fr) 6fr;
+}
+ 
+.auth-side {
+  background: var(--violet-deep);
+  color: #fff;
+  padding: clamp(28px, 5vw, 64px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+}
+ 
+.auth-main {
+  display: grid;
+  place-items: center;
+  padding: 32px 24px;
+}
+ 
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+}
+ 
+/* ---------- painel lateral ---------- */
+ 
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+ 
+.brand-icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #7c62ff;
+  color: #fff;
+  font-weight: 800;
+}
+ 
+.side-title {
+  margin: 0;
+  max-width: 14em;
+  font-size: clamp(1.6rem, 2.8vw, 2.3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+ 
+.ladder {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 18px;
+}
+ 
+.ladder li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px 12px;
+  font-size: 0.95rem;
+}
+ 
+.ladder-value {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+ 
+.bar {
+  grid-column: 1 / -1;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+}
+ 
+.bar-fill {
+  display: block;
+  height: 100%;
+  width: var(--value);
+  border-radius: inherit;
+  background: var(--tone);
+  transform-origin: left center;
+  animation: fill 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(var(--i) * 90ms + 150ms);
+}
+ 
+@keyframes fill {
+  from {
+    transform: scaleX(0);
+  }
+}
+ 
+/* ---------- formulário ---------- */
+ 
+h1 {
+  margin: 0;
+  font-size: clamp(1.7rem, 3vw, 2.1rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+ 
+.auth-subtitle {
+  margin: 8px 0 28px;
+  color: var(--muted);
+}
+ 
+.field {
+  margin-bottom: 18px;
+}
+ 
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+ 
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+}
+ 
+input:hover {
+  border-color: #b9b3d6;
+}
+ 
+input:focus-visible {
+  outline-offset: 0;
+  border-color: var(--violet);
+}
+ 
+input[aria-invalid="true"] {
+  border-color: var(--danger);
+}
+ 
+.password-wrap {
+  position: relative;
+}
+ 
+.password-wrap input {
+  padding-right: 96px;
+}
+ 
+.reveal {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  min-height: 36px;
+  padding: 0 12px;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--violet);
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+ 
+.reveal:hover {
+  background: #ece8ff;
+}
+ 
+.field-hint {
+  margin: 6px 0 0;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+ 
+.field-error {
+  margin: 6px 0 0;
+  font-size: 0.875rem;
+  color: var(--danger);
+}
+ 
+.check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 0 20px;
+  font-weight: 400;
+  color: var(--muted);
+  cursor: pointer;
+}
+ 
+.check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--violet);
+}
+ 
+.form-error {
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  color: var(--danger);
+  background: var(--danger-soft);
+  border-left: 3px solid var(--danger);
+  border-radius: 6px;
+}
+ 
+.btn {
+  display: block;
+  width: 100%;
+  padding: 13px 16px;
+  font: inherit;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+}
+ 
+.btn-primary {
+  color: #fff;
+  background: var(--violet);
+  border: 1.5px solid var(--violet);
+}
+ 
+.btn-primary:hover {
+  background: var(--violet-hover);
+  border-color: var(--violet-hover);
+}
+ 
+.btn-primary:disabled {
+  opacity: 0.75;
+  cursor: progress;
+}
+ 
+.btn-ghost {
+  margin-top: 10px;
+  color: var(--ink);
+  background: transparent;
+  border: 1.5px solid var(--line);
+}
+ 
+.btn-ghost:hover {
+  border-color: var(--violet);
+  color: var(--violet);
+}
+ 
+.switch {
+  margin: 24px 0 0;
+  text-align: center;
+  color: var(--muted);
+}
+ 
+.link {
+  padding: 0;
+  font: inherit;
+  font-weight: 600;
+  color: var(--violet);
+  background: none;
+  border: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+ 
+.notice {
+  margin: 28px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+ 
+/* ---------- telas menores ---------- */
+ 
+@media (max-width: 820px) {
+  .auth {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+ 
+  .auth-side {
+    padding: 18px 24px;
+  }
+ 
+  .side-title,
+  .ladder {
+    display: none;
+  }
+ 
+  .auth-main {
+    align-items: start;
+    padding-top: 32px;
+  }
+}
+ 
+@media (prefers-reduced-motion: reduce) {
+  .bar-fill {
+    animation: none;
+  }
+}
+ 

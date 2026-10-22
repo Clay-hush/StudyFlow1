@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyFlow | Organizador de Estudos</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="auth.js"></script>
+  <script>Auth.requireLogin();</script>
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- Menu lateral -->
+    <aside class="sidebar">
+      <a href="#" class="brand">
+        <span class="brand-icon">S</span>
+        <span>StudyFlow</span>
+      </a>
+
+      <p class="menu-label">MENU PRINCIPAL</p>
+
+      <nav class="navigation">
+        <a href="#inicio" class="nav-item active">
+          <span class="nav-icon">⌂</span>
+          Visão geral
+        </a>
+        <a href="#disciplinas" class="nav-item">
+          <span class="nav-icon">▤</span>
+          Disciplinas
+        </a>
+        <a href="#tarefas" class="nav-item">
+          <span class="nav-icon">☷</span>
+          Minhas tarefas
+          <span class="nav-count">4</span>
+        </a>
+        <a href="#horas" class="nav-item">
+          <span class="nav-icon">◷</span>
+          Tempo de estudo
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="profile-avatar">E</div>
+        <div class="profile-info">
+          <strong id="user-name">Estudante</strong>
+          <span>Meu espaço de estudos</span>
+        </div>
+        <button type="button" id="logout-btn" class="logout-btn">Sair</button>
+      </div>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main class="main-content" id="inicio">
+
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">SEGUNDA-FEIRA, 19 DE OUTUBRO</p>
+          <h1>Olá, estudante!</h1>
+          <p class="subtitle">Organize seu tempo e avance nos seus objetivos.</p>
+        </div>
+        <div class="today-badge">
+          <span class="status-dot"></span>
+          Sua rotina em foco
+        </div>
+      </header>
+
+      <!-- Indicadores -->
+      <section class="stats-grid" aria-label="Resumo dos estudos">
+        <article class="stat-card">
+          <div class="stat-top">
+            <span class="stat-label">Disciplinas</span>
+            <span class="stat-icon purple">▤</span>
+          </div>
+          <p class="stat-value">05</p>
+          <p class="stat-description">Matérias em andamento</p>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-top">
+            <span class="stat-label">Tarefas pendentes</span>
+            <span class="stat-icon orange">☷</span>
+          </div>
+          <p class="stat-value">04</p>
+          <p class="stat-description">Atividades para concluir</p>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-top">
+            <span class="stat-label">Horas estudadas</span>
+            <span class="stat-icon green">◷</span>
+          </div>
+          <p class="stat-value">08h 30min</p>
+          <p class="stat-description">Total nesta semana</p>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-top">
+            <span class="stat-label">Tarefas concluídas</span>
+            <span class="stat-icon blue">✓</span>
+          </div>
+          <p class="stat-value">65%</p>
+          <p class="stat-description">Progresso geral</p>
+        </article>
+      </section>
+
+      <!-- Área de tarefas e disciplinas -->
+      <section class="content-grid">
+
+        <article class="panel tasks-panel" id="tarefas">
+          <div class="panel-header">
+            <div>
+              <h2>Próximas tarefas</h2>
+              <p>O que precisa da sua atenção</p>
+            </div>
+            <a href="#tarefas" class="text-link">Ver todas</a>
+          </div>
+
+          <div class="task-list">
+            <div class="task-item">
+              <span class="task-marker purple-marker"></span>
+              <div class="task-details">
+                <h3>Praticar funções em Python</h3>
+                <p>Programação · Hoje</p>
+              </div>
+              <span class="priority high">Alta</span>
+            </div>
+
+            <div class="task-item">
+              <span class="task-marker blue-marker"></span>
+              <div class="task-details">
+                <h3>Revisar estrutura HTML</h3>
+                <p>Desenvolvimento Web · Amanhã</p>
+              </div>
+              <span class="priority medium">Média</span>
+            </div>
+
+            <div class="task-item">
+              <span class="task-marker green-marker"></span>
+              <div class="task-details">
+                <h3>Estudar modelagem de dados</h3>
+                <p>Banco de Dados · 22 out.</p>
+              </div>
+              <span class="priority high">Alta</span>
+            </div>
+
+            <div class="task-item">
+              <span class="task-marker orange-marker"></span>
+              <div class="task-details">
+                <h3>Resolver exercícios de lógica</h3>
+                <p>Algoritmos · 24 out.</p>
+              </div>
+              <span class="priority low">Baixa</span>
+            </div>
+          </div>
+
+          <button class="primary-button" type="button">+ Nova tarefa</button>
+        </article>
+
+        <article class="panel subjects-panel" id="disciplinas">
+          <div class="panel-header">
+            <div>
+              <h2>Minhas disciplinas</h2>
+              <p>Acompanhe sua evolução</p>
+            </div>
+          </div>
+
+          <div class="subject-item">
+            <div class="subject-heading">
+              <span class="subject-dot purple-marker"></span>
+              <span class="subject-name">Python</span>
+              <strong>75%</strong>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill purple-fill" style="width: 75%"></div>
+            </div>
+          </div>
+
+          <div class="subject-item">
+            <div class="subject-heading">
+              <span class="subject-dot blue-marker"></span>
+              <span class="subject-name">HTML e CSS</span>
+              <strong>60%</strong>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill blue-fill" style="width: 60%"></div>
+            </div>
+          </div>
+
+          <div class="subject-item">
+            <div class="subject-heading">
+              <span class="subject-dot green-marker"></span>
+              <span class="subject-name">Banco de Dados</span>
+              <strong>45%</strong>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill green-fill" style="width: 45%"></div>
+            </div>
+          </div>
+
+          <div class="subject-item">
+            <div class="subject-heading">
+              <span class="subject-dot orange-marker"></span>
+              <span class="subject-name">JavaScript</span>
+              <strong>30%</strong>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill orange-fill" style="width: 30%"></div>
+            </div>
+          </div>
+
+          <div class="subject-item">
+            <div class="subject-heading">
+              <span class="subject-dot pink-marker"></span>
+              <span class="subject-name">Algoritmos</span>
+              <strong>80%</strong>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill pink-fill" style="width: 80%"></div>
+            </div>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- Resumo inferior -->
+      <section class="focus-card" id="horas">
+        <div class="focus-icon">✦</div>
+        <div class="focus-text">
+          <h2>Pequenos passos, grandes resultados.</h2>
+          <p>Mantenha a consistência e reserve um tempo para aprender algo novo hoje.</p>
+        </div>
+        <span class="focus-tag">FOCO NO PROGRESSO</span>
+      </section>
+
+      <footer class="footer">
+        <p>StudyFlow © 2026 · Seu progresso começa com organização.</p>
+      </footer>
+
+    </main>
+  </div>
+
+  <script>
+    const user = Auth.currentUser();
+    if (user) {
+      document.getElementById('user-name').textContent = user.name;
+      document.querySelector('.profile-avatar').textContent = user.name.charAt(0).toUpperCase();
+      document.querySelector('h1').textContent = 'Olá, ' + user.name.split(' ')[0] + '!';
+    }
+    document.getElementById('logout-btn').addEventListener('click', Auth.logout);
+  </script>
+</body>
+</html>
